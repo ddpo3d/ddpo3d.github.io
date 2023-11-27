@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bulma css template -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- model viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+  <title>
+    DDPO3D
+  </title>
+</head>
+<body>
+  <section class="section">
+
+  <div class="container has-text-centered">
+    <!-- paper title -->
+    <p class="title is-3"> RL Dreams: Policy Gradient Optimization for Score Distillation 3D Generation </p>
+    <!-- publication -->
+    <p class="subtitle is-4"> Under submission </p>
+    <!-- authors -->
+    <p class="title is-5 mt-2"> 
+      <a href="https://ddpo3d.github.io/" target="_blank">Anonymous authors</a>
+      <!-- <a href="https://ddpo3d.github.io/" target="_blank">Anonymous author</a><sup>1</sup>,  -->
+    </p>
+    <!-- affiliations -->
+    <p class="subtitle is-5"> 
+      <!-- <sup>1</sup> Anonymous university &nbsp; -->
+    </p>
+
+    <!-- other links -->
+    <div class="is-flex is-justify-content-center">
+      <span class="icon-text mx-1">
+        <!-- <a class="button is-dark" href="" role="button" target="_blank"> <span class="icon"> <ion-icon name="document-outline"></ion-icon> </span> <span> Arxiv </span>  </a>  -->
+      </span>
+      <span class="icon-text mx-1">
+        <a class="button is-dark" href="https://github.com/ddpo3d/ddpo3d" role="button" target="_blank"> <span class="icon"> <ion-icon name="logo-github"></ion-icon> </span> <span> Code </span> </a> 
+      </span>
+    </div>
+   
+  </div>
+
+  <!-- main container -->
+  <div class="container is-max-desktop has-text-centered">
+
+    <!-- abstract -->
+    <p class="title is-3 mt-5 has-text-centered"> Abstract </p>
+    <p class="content is-size-6 has-text-left">
+      3D generation has rapidly accelerated in the past decade owing to the progress in the field of generative modeling. Score Distillation Sampling (SDS) based rendering has improved 3D asset generation to a great extent. Further, the recent work of Denoising Diffusion Policy Optimization (DDPO) demonstrates that the diffusion process is compatible with policy gradient methods and has been demonstrated to improve the 2D diffusion models using an aesthetic scoring function. We first show that this aesthetic scorer acts as a strong guide for a variety of SDS-based methods and demonstrates its effectiveness in text-to-3D synthesis. Further, we leverage the DDPO approach to improve the quality of the 3D rendering obtained from 2D diffusion models. Our approach called DDPO3D, employs the policy gradient method in tandem with aesthetic scoring. To the best of our knowledge, this is the first method that extends policy gradient methods to 3D score-based rendering and shows improvement across SDS-based methods such as DreamGaussian, which are currently driving research in text-to-3D synthesis. Our approach is compatible with score distillation-based methods, which would facilitate the integration of diverse reward functions into the generative process.
+    </p>
+    <div class="box"></div>
+    
+    <!-- results (videos) -->
+    <p class="title is-3 mt-5 has-text-centered">Architecture overview</p>
+    <figure class="image">
+      <img src="images/pipeline.png">
+    </figure>
+    <p>We start with the SDS-based gradient calculation using a frozen UNet model calculated by performing the denoising operation on the image generated using the NeRF/Gaussian Splatting technique. Then, using the rendered image, we calculate the aesthetic score and perform another step of noising-denoising using the UNet as a policy network. We use the generated latents as the action and compute the policy gradient, which is then used to update the NeRF/Gaussian splat parameters to maximize the aesthetic score.</p>
+
+    <div class="box"></div>
+    <p class="title is-3 mt-5 has-text-centered">Generated 3D assets from textual prompts</p>
+    <div class="columns is-mobile">
+      <div class="column">
+        <i>A campfire</i> <br/> <br/>
+        <video muted autoplay loop> <source src="videos/campfire.mp4" type="video/mp4"> </video>
+      </div>
+      <div class="column">
+        <i>A small saguaro cactus planted in a clay pot</i>
+        <video muted autoplay loop> <source src="videos/cactus.mp4" type="video/mp4"> </video>
+      </div>
+      <div class="column">
+        <i>A photo of an icecream</i> <br/> <br/>
+        <video muted autoplay loop> <source src="videos/icecream.mp4" type="video/mp4"> </video>
+      </div>
+      <div class="column">
+        <i>A tuplip</i> <br/> <br/>
+        <video muted autoplay loop> <source src="videos/tulip.mp4" type="video/mp4"> </video>
+      </div>
+    </div>
+
+    <div class="columns is-mobile">
+      <div class="column">
+        <i>A parrot sitting on a basket of macarons</i>
+        <video muted autoplay loop> <source src="videos/parrot.mp4" type="video/mp4"> </video>
+      </div>
+      <div class="column">
+        <i>An imperial state crown of England</i> <br/> <br/>
+        <video muted autoplay loop> <source src="videos/crown.mp4" type="video/mp4"> </video>
+      </div>
+      <div class="column">
+        <i>A photo of a fire hydrant, highly detailed</i>
+        <video muted autoplay loop> <source src="videos/firehydrant.mp4" type="video/mp4"> </video>
+      </div>
+      <div class="column">
+        <i>A bagel filled with cream cheese and lox</i> <br/> <br/>
+        <video muted autoplay loop> <source src="videos/bagel.mp4" type="video/mp4"> </video>
+      </div>
+    </div>
+    
+    <div class="columns is-mobile">
+      <div class="column">
+        <i>A delicious hamburger</i> <br/> <br/>
+        <video muted autoplay loop> <source src="videos/hamburger.mp4" type="video/mp4"> </video>
+      </div>
+      <div class="column">
+        <i>A ripe strawberry</i> <br/><br/>
+        <video muted autoplay loop> <source src="videos/strawberry.mp4" type="video/mp4"> </video>
+      </div>
+      <div class="column">
+        <i>A pineapple </i> <br/> <br/>
+        <video muted autoplay loop> <source src="videos/pineapple.mp4" type="video/mp4"> </video>
+      </div>
+      <div class="column">
+        <i>A fresh cinnamon roll covered in glaze, high resolution</i> <br/>
+        <video muted autoplay loop> <source src="videos/cinamonroll.mp4" type="video/mp4"> </video>
+      </div>
+    </div>
+    <div class="columns is-mobile">
+      <div class="column">
+        <i>A blue jay standing on a large basket of rainbow macarons</i> <br/> <br/>
+        <video muted autoplay loop> <source src="videos/birdmacaron.mp4" type="video/mp4"> </video>
+      </div>
+      <div class="column">
+        <i>A delicious croissant</i> <br/> <br/>
+        <video muted autoplay loop> <source src="videos/croissant.mp4" type="video/mp4"> </video>
+      </div>
+      <div class="column">
+        <i>A photo of fries and a hamburger</i> <br/> <br/>
+        <video muted autoplay loop> <source src="videos/fries_hamburger.mp4" type="video/mp4"> </video>
+      </div>
+      <div class="column">
+        <i>A photo of a cupcake </i> <br/> <br/>
+        <video muted autoplay loop> <source src="videos/cupcake.mp4" type="video/mp4"> </video>
+      </div>
+    </div>
+
+    <!-- 3d model viewer -->
+    <div class="box"></div>
+    <p class="title is-3 mt-5 has-text-centered"> Exported Meshes </p>
+    <div class="block">There are some artifacts (dark spots) on the models due to the HTML model viewer components. They do not come from the exported meshes.</div>
+
+    
+    <div class="columns is-mobile">
+      <div class="column">
+        <i>A pineapple </i>
+        <model-viewer src="meshes/pineapple/pineapple.glb" poster="meshes/pineapple/pineapple.png" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+      </div>
+      <div class="column">
+        <i>A parrot sitting on a basket of macarons</i>
+        <model-viewer src="meshes/parrot/parrot.glb" poster="meshes/parrot/parrot.png" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+      </div>
+      <div class="column">
+        <i>A photo of a fire hydrant, highly detailed</i>
+        <model-viewer src="meshes/firehydrant/firehydrant.glb" poster="meshes/firehydrant/firehydrant.png" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+      </div>
+      <div class="column">
+        <i>A bagel filled with cream cheese and lox</i>
+        <model-viewer src="meshes/bagel/bagel.glb" poster="meshes/bagel/bagel.png" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+      </div>
+    </div>
+    
+    <div class="columns is-mobile">
+      <div class="column">
+        <i>A photo of a cupcake</i>
+        <model-viewer src="meshes/cupcake/cupcake.glb" poster="meshes/cupcake/cupcake.png" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+      </div>
+      <div class="column">
+        <i>An imperial state crown of England</i>
+        <model-viewer src="meshes/crown/crown.glb" poster="meshes/crown/crown.png" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+      </div>
+      <div class="column">
+        <i>A blue jay standing on a large basket of rainbow macarons</i>
+        <model-viewer src="meshes/birdmacaron/birdmacaron.glb" poster="meshes/birdmacaron/birdmacaron.png" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+      </div>
+      <div class="column">
+        <i>A campfire</i>
+        <model-viewer src="meshes/campfire/campfire.glb" poster="meshes/campfire/campfire.png" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+      </div>
+    </div>
+    
+
+    <!-- citation -->
+    <!-- <div class="card mt-4">
+      <header class="card-header">
+        <p class="card-header-title"> Citation </p>
+      </header>
+      <div class="card-content is-size-5 has-text-left">
+        <pre><code>Bibtex goes here</code></pre>
+      </div>
+    </div> -->
+  </div>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <div class="box"></div>
+      <p>We thank the authors of <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> for the template of this site.</p>
+    </div>
+  </footer>
+</body>
+</html>
