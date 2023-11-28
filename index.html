@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- bulma css template -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- custom stylesheet -->
+  <link rel="stylesheet" href="style.css">
   <!-- ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -52,7 +54,7 @@
     <p class="content is-size-6 has-text-left">
       3D generation has rapidly accelerated in the past decade owing to the progress in the field of generative modeling. Score Distillation Sampling (SDS) based rendering has improved 3D asset generation to a great extent. Further, the recent work of Denoising Diffusion Policy Optimization (DDPO) demonstrates that the diffusion process is compatible with policy gradient methods and has been demonstrated to improve the 2D diffusion models using an aesthetic scoring function. We first show that this aesthetic scorer acts as a strong guide for a variety of SDS-based methods and demonstrates its effectiveness in text-to-3D synthesis. Further, we leverage the DDPO approach to improve the quality of the 3D rendering obtained from 2D diffusion models. Our approach called DDPO3D, employs the policy gradient method in tandem with aesthetic scoring. To the best of our knowledge, this is the first method that extends policy gradient methods to 3D score-based rendering and shows improvement across SDS-based methods such as DreamGaussian, which are currently driving research in text-to-3D synthesis. Our approach is compatible with score distillation-based methods, which would facilitate the integration of diverse reward functions into the generative process.
     </p>
-    <div class="box"></div>
+    <div class="line"></div>
     
     <!-- results (videos) -->
     <p class="title is-3 mt-5 has-text-centered">Architecture overview</p>
@@ -61,7 +63,7 @@
     </figure>
     <p>We start with the SDS-based gradient calculation using a frozen UNet model calculated by performing the denoising operation on the image generated using the NeRF/Gaussian Splatting technique. Then, using the rendered image, we calculate the aesthetic score and perform another step of noising-denoising using the UNet as a policy network. We use the generated latents as the action and compute the policy gradient, which is then used to update the NeRF/Gaussian splat parameters to maximize the aesthetic score.</p>
 
-    <div class="box"></div>
+    <div class="line"></div>
     <p class="title is-3 mt-5 has-text-centered">Generated 3D assets from textual prompts</p>
     <div class="columns is-mobile">
       <div class="column">
@@ -139,9 +141,9 @@
     </div>
 
     <!-- 3d model viewer -->
-    <div class="box"></div>
+    <div class="line"></div>
     <p class="title is-3 mt-5 has-text-centered"> Exported Meshes </p>
-    <div class="block">There are some artifacts (dark spots) on the models due to the HTML model viewer components. They do not come from the exported meshes.</div>
+    <div class="block">There might be some artifacts (dark spots) on the models could be attributed to the HTML model viewer components in certain browsers and operating systems, as observed in the case of Chrome on Ubuntu. These artifacts are not a result of the exported meshes.</div>
 
     
     <div class="columns is-mobile">
@@ -196,7 +198,7 @@
   </section>
   <footer class="footer">
     <div class="content has-text-centered">
-      <div class="box"></div>
+      <div class="line"></div>
       <p>We thank the authors of <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> for the template of this site.</p>
     </div>
   </footer>
